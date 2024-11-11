@@ -1,0 +1,123 @@
+@media (prefers-color-scheme: light){
+    :root {
+        --defaultRead:#000000;
+        --defaultBack:#ffffff;
+    }
+    body{
+        background-color: var(--defaultBack);
+        color: var(--defaultRead);
+    }
+}
+
+@media (prefers-color-scheme: dark){
+    :root {
+        --defaultRead:#ffffff;
+        --defaultBack:#000000;
+    }
+    body{
+        background-color: var(--defaultBack);
+        color: var(--defaultRead);
+    }
+    .logo{
+        filter: invert(100);
+    }
+    
+}
+
+
+.flexFlow{
+    display: flex;
+    flex-direction: row;
+}
+
+.flexFlow li{
+    margin: 0 20px;
+    padding: 5px;
+    cursor: pointer;
+    position: relative;
+    font-size: 1.5em;
+}
+
+.flexFlow li a::after{
+	content:'';
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: var(--defaultRead);
+	height: 2px;
+	transform: scaleX(0);
+	transform-origin: center;
+	transition: transform 0.3s ease;
+    box-shadow: 0 0 5px var(--defaultRead);
+}
+
+.flexFlow li a:hover::after{
+	transform: scaleX(1);
+}
+
+a{
+    text-decoration: none;
+    color: var(--default);
+}
+
+
+.logo{
+    width: 150px;
+}
+
+.desktop{ /*Used for making sure the desktop has the right header*/
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: var(--defaultBack);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    height:calc(10svh);
+    box-sizing: border-box;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+body{
+    background-color: lawngreen;
+}
+
+.hero{
+	background-color: var(--defaultRead);
+    filter: saturate(0);
+	background-image: url(images/hero.jpg);
+	background-position-y: center;
+	background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.heroText{
+	color: var(--defaultBack);
+    box-sizing: border-box;
+	text-align: center;
+	font-size: 3em;
+	padding:calc(21.5vw - 0.5em);
+}
+
+/* Scroll bar stuff */
+body::-webkit-scrollbar {
+    width: 10px;
+}
+  
+body::-webkit-scrollbar-track {
+    background: #FFFFFF; 
+}
+   
+body::-webkit-scrollbar-thumb {
+    background: #555; 
+}
+  
+body::-webkit-scrollbar-thumb:hover {
+    background: black; 
+}
+
