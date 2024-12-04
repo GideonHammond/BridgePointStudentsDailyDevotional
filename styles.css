@@ -1,7 +1,13 @@
+html,body {
+    height: 100%;
+}
 @media (prefers-color-scheme: light){
     :root {
         --defaultRead:#000000;
         --defaultBack:#ffffff;
+        --defaultMedium:#bbbbbb;
+        --accentOne:#9900dd;
+        --accentTwo:#00ff99;
     }
     body{
         background-color: var(--defaultBack);
@@ -13,6 +19,9 @@
     :root {
         --defaultRead:#ffffff;
         --defaultBack:#000000;
+        --defaultMedium:#111111;
+        --accentOne:#00ff99;
+        --accentTwo:#9900dd;
     }
     body{
         background-color: var(--defaultBack);
@@ -29,15 +38,13 @@
     display: flex;
     flex-direction: row;
 }
-
 .flexFlow li{
     margin: 0 20px;
     padding: 5px;
     cursor: pointer;
     position: relative;
-    font-size: 1.5em;
+    font-size: 2em;
 }
-
 .flexFlow li a::after{
 	content:'';
 	position: absolute;
@@ -51,22 +58,21 @@
 	transition: transform 0.3s ease;
     box-shadow: 0 0 5px var(--defaultRead);
 }
-
 .flexFlow li a:hover::after{
 	transform: scaleX(1);
 }
-
 a{
     text-decoration: none;
-    color: var(--default);
+    color: var(--defaultRead);
 }
 
 
 .logo{
-    width: 150px;
+    width: 200px;
+    cursor: pointer;
 }
 
-.desktop{ /*Used for making sure the desktop has the right header*/
+.desktop-header{ /*Used for making sure the desktop has the right header*/
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -83,41 +89,53 @@ a{
     transition: 0.5s;
 }
 
-body{
-    background-color: lawngreen;
+main{
+    background-color: var(--defaultMedium);
 }
 
-.hero{
-	background-color: var(--defaultRead);
-    filter: saturate(0);
-	background-image: url(images/hero.jpg);
-	background-position-y: center;
-	background-size: 100%;
-    background-repeat: no-repeat;
+.hidden{
+	opacity: 0;
+	filter:blur(2px);
+	transform: translateY(-15%);
+}
+.show{
+	filter:blur(0px);
+	transform: translateX(0);
+	opacity: 1;
+	transition:ease-in-out 1.5s;
 }
 
-.heroText{
-	color: var(--defaultBack);
+.hero-text{
+	background: -webkit-linear-gradient(90deg, var(--accentOne), var(--accentTwo));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     box-sizing: border-box;
 	text-align: center;
-	font-size: 3em;
-	padding:calc(21.5vw - 0.5em);
+	font-size: 7em;
+	padding:calc(13vw - 0.5em);
+    font-family: "Pacifico", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.break-image{
+    background-image: url('images/bibleBreak.jpg');
+    background-position: center;
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+.break-image p {
+    padding: 160px;
 }
 
 /* Scroll bar stuff */
 body::-webkit-scrollbar {
     width: 10px;
 }
-  
 body::-webkit-scrollbar-track {
-    background: #FFFFFF; 
+    background: white; 
 }
-   
 body::-webkit-scrollbar-thumb {
     background: #555; 
 }
-  
 body::-webkit-scrollbar-thumb:hover {
     background: black; 
 }
-

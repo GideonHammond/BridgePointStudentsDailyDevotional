@@ -12,11 +12,17 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
     <link rel="manifest" href="favicon_io/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <div class="desktop" id="header">
-            <img src="images/devoLogo.png" class="logo">
+        <div class="desktop-header" id="header">
+            <a href="index.html">
+                <img src="images/devoLogo.png" class="logo">
+            </a>
+            
             <ul class="flexFlow">
                 <li>
                     <a href="index.html">
@@ -25,7 +31,7 @@
                 </li>
                 <li>
                     <a href="about.html">
-                        Our Community
+                        Who Are We?
                     </a>
                 </li>
                 <li>
@@ -45,7 +51,14 @@
         </div>
     </header>
     <main id="main">
-        <p>What is up! This page is currently being worked on so just wait a hot minute as I make a beautiful website!</p>
+        <div class="hero">
+            <h1 class="hero-text hidden">
+                Today's Devotional
+            </h1>
+        </div>
+        <div class="break-image">
+            <p></p>
+        </div>
     </main>
     
     <script src="myscript.js"></script>
