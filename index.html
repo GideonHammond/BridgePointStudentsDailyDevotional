@@ -17,42 +17,76 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="desktop-header" id="header">
+    <header id="header">
+        <div class="desktop-header">
             <a href="index.html">
                 <img src="images/devoLogo.png" class="logo">
             </a>
-            
-            <ul class="flexFlow">
-                <li>
-                    <a href="index.html">
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a href="about.html">
-                        Who Are We?
-                    </a>
-                </li>
-                <li>
-                    <a href="list.html">
-                        Back Catalogue
-                    </a>
-                </li>
-                <li>
-                    <a href="contact.html">
-                        Contact
-                    </a>
-                </li>
-            </ul>
+            <nav>
+                <ul class="flexFlow">
+                    <li>
+                        <a href="index.html">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="about.html">
+                            About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="list.html">
+                            Archive
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact.html">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-        <div class="mobile">
-
+        <div class="mobile-header">
+            <nav>
+                <a href="#" class="hamburger" onclick="openNav()">
+                    <i class="fa-solid fa-bars"> </i>
+                </a>
+                <h1>BPSDD</h1>
+                <img src="images/bplogo.png" alt="BridgePoint's Logo" class="mobile-logo">
+                <ul>
+                    <li>
+                        <a href="#" class="closebtn" onclick="closeNav()">
+                            &times;
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="about.html">
+                            About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="list.html">
+                            Archive
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact.html">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </header>
     <main id="main">
-        <div class="hero">
-            <h1 class="hero-text hidden">
+        <div class="hero" id="hero">
+            <h1 class="hero-text hidden" id="hero-text">
                 Today's Devotional
             </h1>
         </div>

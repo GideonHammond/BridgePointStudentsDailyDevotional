@@ -1,13 +1,10 @@
-html,body {
-    height: 100%;
-}
 @media (prefers-color-scheme: light){
     :root {
-        --defaultRead:#000000;
-        --defaultBack:#ffffff;
-        --defaultMedium:#bbbbbb;
-        --accentOne:#9900dd;
-        --accentTwo:#00ff99;
+        --defaultRead:#000;
+        --defaultBack:#fff;
+        --defaultMedium:#aaa;
+        --accentOne:#dd0099;
+        --accentTwo:#0099ff;
     }
     body{
         background-color: var(--defaultBack);
@@ -17,9 +14,9 @@ html,body {
 
 @media (prefers-color-scheme: dark){
     :root {
-        --defaultRead:#ffffff;
-        --defaultBack:#000000;
-        --defaultMedium:#111111;
+        --defaultRead:#fff;
+        --defaultBack:#000;
+        --defaultMedium:#111;
         --accentOne:#00ff99;
         --accentTwo:#9900dd;
     }
@@ -33,6 +30,10 @@ html,body {
     
 }
 
+main{
+    background-color: var(--defaultMedium);
+    margin: 20vw;
+}
 
 .flexFlow{
     display: flex;
@@ -72,6 +73,20 @@ a{
     cursor: pointer;
 }
 
+.mobile-header{
+    display: none;
+    background-color: var(--defaultBack);
+    justify-content: space-around;
+    padding:10px;
+    align-items: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    position: sticky;
+    top:0;
+    z-index: 2;
+    transition: transform 1s ease;
+}
+
 .desktop-header{ /*Used for making sure the desktop has the right header*/
     display: flex;
     align-items: center;
@@ -89,9 +104,7 @@ a{
     transition: 0.5s;
 }
 
-main{
-    background-color: var(--defaultMedium);
-}
+
 
 .hidden{
 	opacity: 0;
@@ -112,8 +125,14 @@ main{
     box-sizing: border-box;
 	text-align: center;
 	font-size: 7em;
-	padding:calc(13vw - 0.5em);
+	padding:calc(22vw - 0.5em) 0;
     font-family: "Pacifico", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.shrunk{
+    font-size: 3em;
+	padding:calc(5vw - 0.5em);
+    transition:ease-in-out 0.5s;
 }
 
 .break-image{
@@ -123,7 +142,7 @@ main{
     background-size:cover;
 }
 .break-image p {
-    padding: 160px;
+    padding: 10vw;
 }
 
 /* Scroll bar stuff */
@@ -138,4 +157,50 @@ body::-webkit-scrollbar-thumb {
 }
 body::-webkit-scrollbar-thumb:hover {
     background: black; 
+}
+
+@media (width <= 1600px) {
+    html{
+        font-size: 14px;
+    }
+}
+@media (width <= 1400px) {
+    main{
+        margin: 15vw;
+    }
+}
+@media (width <= 1200px) {
+    html{
+        font-size: 12px;
+    }
+    main{
+        margin: 10vw;
+    }
+}
+@media (width <= 1000px){
+    main{
+        margin: 0vw;
+    }
+}
+@media (width <= 700px){
+    html{
+        font-size: 10px;
+    }
+    .desktop-header{
+        display: none;
+    }
+    .mobile-header{
+        display: block;
+    }
+}
+@media (width <= 400px){
+    html{
+        font-size: 8px;
+    }
+    .desktop-header{
+        display: none;
+    }
+    .mobile-header{
+        display: flex;
+    }
 }
