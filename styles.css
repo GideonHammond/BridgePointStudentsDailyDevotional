@@ -73,38 +73,45 @@ a{
     cursor: pointer;
 }
 
-.mobile-header{
-    display: none;
+header{
     background-color: var(--defaultBack);
-    justify-content: space-around;
     padding:10px;
-    align-items: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: bold;
-    position: sticky;
-    top:0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
     z-index: 2;
-    transition: transform 1s ease;
+    transition: ease-in-out 1s;
+}
+
+.mobile-header{/*Used for making sure mobile has the right header*/
+    display: none;
+}
+
+.mobile-flex-header{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+}
+
+.mobile-logo{
+	width:50px;
+}
+
+.title-text, .hamburger{
+    font-size: 2em;
 }
 
 .desktop-header{ /*Used for making sure the desktop has the right header*/
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
-    background-color: var(--defaultBack);
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
     z-index: 1;
     height:calc(10svh);
     box-sizing: border-box;
     overflow-x: hidden;
-    transition: 0.5s;
 }
-
-
 
 .hidden{
 	opacity: 0;
@@ -196,11 +203,5 @@ body::-webkit-scrollbar-thumb:hover {
 @media (width <= 400px){
     html{
         font-size: 8px;
-    }
-    .desktop-header{
-        display: none;
-    }
-    .mobile-header{
-        display: flex;
     }
 }
