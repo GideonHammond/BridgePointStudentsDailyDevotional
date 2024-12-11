@@ -26,13 +26,43 @@
     }
     .desktop-logo{
         filter: invert(100);
-    }
-    
+    }   
+}
+
+html{
+    height: 100%;
+}
+
+a{
+    text-decoration: none;
+    color: var(--defaultRead);
 }
 
 main{
     background-color: var(--defaultMedium);
     margin: 20vw;
+}
+
+header{
+    background-color: var(--defaultMedium);
+    padding:10px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    transition: ease-in-out 1s;
+    font-family: "Exo 2", sans-serif;
+}
+
+.desktop-header{ /*Used for making sure the desktop has the right header*/
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1;
+    height:calc(10svh);
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .desktop-flex-header{
@@ -63,27 +93,10 @@ main{
 .desktop-flex-header a:hover::after{
 	transform: scaleX(1);
 }
-a{
-    text-decoration: none;
-    color: var(--defaultRead);
-}
-
 
 .desktop-logo{
     width: 200px;
     cursor: pointer;
-}
-
-header{
-    background-color: var(--defaultMedium);
-    padding:10px;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 2;
-    transition: ease-in-out 1s;
-    font-family: "Exo 2", sans-serif;
 }
 
 .mobile-header{/*Used for making sure mobile has the right header*/
@@ -107,7 +120,7 @@ header{
     width: 0;
     top: 0;
     left: 0;
-    background-color: rgba(0,0,0,0.85);
+    background-color: var(--defaultBack);
     overflow-x: hidden;
     transition: 0.5s;
     font-family: sans-serif;
@@ -118,25 +131,9 @@ header{
     text-decoration: none;
     font-size: 2em;
     color: var(--defaultRead);
-
 }
-
-.title-text, .open-button{
+.title-text, .open-button,.close-button{
     font-size: 4em;
-}
-
-.close-button{
-    font-size: 3em;
-}
-
-.desktop-header{ /*Used for making sure the desktop has the right header*/
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 1;
-    height:calc(10svh);
-    box-sizing: border-box;
-    overflow-x: hidden;
 }
 
 .hidden{
@@ -163,12 +160,6 @@ header{
     font-family: "Pacifico", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-.shrunk{
-    font-size: 3em;
-	padding:calc(5vw - 0.5em);
-    transition:ease-in-out 0.5s;
-}
-
 .break-image{
     background-image: url('images/bibleBreak.jpg');
     background-position: center;
@@ -177,6 +168,21 @@ header{
 }
 .break-image p {
     padding: 10vw;
+}
+
+.text-header{
+    font-size: 2em;
+    text-align: center;
+    padding: 15px 15px 0;
+}
+.text{
+    font-size: 1.5em;
+    padding: 32px;
+    line-height: 1.7em;
+}
+
+.text b{
+    font-weight: bold;
 }
 
 /* Scroll bar stuff */
@@ -215,10 +221,22 @@ body::-webkit-scrollbar-thumb:hover {
     main{
         margin: 0vw;
     }
+    .text-header{
+        font-size: 2.5em;
+    }
+    .text{
+        font-size: 1.25em;
+    }
 }
 @media (width <= 700px){
     html{
         font-size: 10px;
+    }
+    .text-header{
+        font-size: 3em;
+    }
+    .text{
+        font-size: 1.5em;
     }
 }
 @media (width <= 600px){
@@ -230,6 +248,9 @@ body::-webkit-scrollbar-thumb:hover {
     }
     .mobile-header{
         display: block;
+    }
+    .text{
+        font-size: 2em;
     }
 }
 @media (width <= 500px){

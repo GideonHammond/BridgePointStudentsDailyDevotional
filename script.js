@@ -46,27 +46,6 @@ function enableScroll(){
 }
 
 
-window.onscroll = function (e) {
-    if (isScrolling) {
-        return;
-    }
-
-    if(!scrollStart){
-        scrollTo(0,0);
-    }
-    if(isVisible && !isShrunk){
-        hero.classList.add("shrunk");
-        isShrunk = true;
-    }else if(isVisible){
-        hero.classList.remove("shrunk");
-        isShrunk = false;
-    }
-    isScrolling = true;
-    setTimeout(() => {
-        isScrolling = false;
-      }, 500);
-}
-
 function openNav() {
     document.getElementById("id-mobile-menu").style.width = "100%";
 }
