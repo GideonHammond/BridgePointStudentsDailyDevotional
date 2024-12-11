@@ -67,3 +67,11 @@ window.onscroll = function (e) {
       }, 500);
 }
 
+function openNav() {
+    document.getElementById("id-mobile-menu").style.width = "100%";
+}
+
+function closeNav() {
+    document.getElementById("id-mobile-menu").style.width = "0";
+}
+

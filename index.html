@@ -15,85 +15,89 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/e581c92dce.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital@0;1&display=swap" rel="stylesheet">    <script src="https://kit.fontawesome.com/e581c92dce.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header id="header">
         <div class="desktop-header">
             <a href="index.html">
-                <img src="images/devoLogo.png" class="logo">
+                <img src="images/devoLogo.png" class="desktop-logo">
             </a>
-            <nav>
-                <ul class="flexFlow">
-                    <li>
-                        <a href="index.html">
-                            Home
-                        </a>
-                    </li>
-                    <li>
-                        <a href="about.html">
-                            About
-                        </a>
-                    </li>
-                    <li>
-                        <a href="list.html">
-                            Archive
-                        </a>
-                    </li>
-                    <li>
-                        <a href="contact.html">
-                            Contact
-                        </a>
-                    </li>
-                </ul>
+            <nav class="desktop-flex-header">
+                <p>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </p>
+                <p>
+                    <a href="about.html">
+                        About
+                    </a>
+                </p>
+                <p>
+                    <a href="list.html">
+                        Archive
+                    </a>
+                </p>
+                <p>
+                    <a href="contact.html">
+                        Contact
+                    </a>
+                </p>
             </nav>
         </div>
         <div class="mobile-header">
             <nav class="mobile-flex-header">
-                <a href="#" class="hamburger" onclick="openNav()">
-                    <i class="fa-solid fa-bars"> </i>
-                </a>
+                <p>
+                    <a href="#" class="open-button" onclick="openNav()">
+                        &#9776;
+                    </a>
+                </p>
                 <p class="title-text">BPSDD</p>
                 <img src="images/bplogo.png" alt="BridgePoint's Logo" class="mobile-logo">
-                <ul>
-                    <li>
-                        <a href="#" class="closebtn" onclick="closeNav()">
+                <div class="mobile-menu" id="id-mobile-menu">
+                    <p>
+                        <a href="#" class="close-button" onclick="closeNav()">
                             &times;
                         </a>
-                    </li>
-                    <li>
+                    </p>
+                    <p>
                         <a href="index.html">
                             Home
                         </a>
-                    </li>
-                    <li>
+                    </p>
+                    <p>
                         <a href="about.html">
                             About
                         </a>
-                    </li>
-                    <li>
+                    </p>
+                    <p>
                         <a href="list.html">
                             Archive
                         </a>
-                    </li>
-                    <li>
+                    </p>
+                    <p>
                         <a href="contact.html">
                             Contact
                         </a>
-                    </li>
-                </ul>
+                    </p>
+                </div>
             </nav>
         </div>
     </header>
     <main id="main">
         <div class="hero" id="hero">
             <h1 class="hero-text hidden" id="hero-text">
-                Today's Devotional
+                <i>
+                    Today's Devotional
+                </i>
+                
             </h1>
         </div>
         <div class="break-image">
             <p></p>
         </div>
+        <p></p>
     </main>
     
     <script src="myscript.js"></script>

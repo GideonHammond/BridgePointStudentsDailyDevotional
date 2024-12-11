@@ -2,7 +2,7 @@
     :root {
         --defaultRead:#000;
         --defaultBack:#fff;
-        --defaultMedium:#aaa;
+        --defaultMedium:#fafafa;
         --accentOne:#dd0099;
         --accentTwo:#0099ff;
     }
@@ -16,7 +16,7 @@
     :root {
         --defaultRead:#fff;
         --defaultBack:#000;
-        --defaultMedium:#111;
+        --defaultMedium:#070707;
         --accentOne:#00ff99;
         --accentTwo:#9900dd;
     }
@@ -24,7 +24,7 @@
         background-color: var(--defaultBack);
         color: var(--defaultRead);
     }
-    .logo{
+    .desktop-logo{
         filter: invert(100);
     }
     
@@ -35,18 +35,19 @@ main{
     margin: 20vw;
 }
 
-.flexFlow{
+.desktop-flex-header{
     display: flex;
     flex-direction: row;
 }
-.flexFlow li{
+.desktop-flex-header a{
     margin: 0 20px;
     padding: 5px;
     cursor: pointer;
     position: relative;
     font-size: 2em;
 }
-.flexFlow li a::after{
+
+.desktop-flex-header a::after{
 	content:'';
 	position: absolute;
 	left: 0;
@@ -59,7 +60,7 @@ main{
 	transition: transform 0.3s ease;
     box-shadow: 0 0 5px var(--defaultRead);
 }
-.flexFlow li a:hover::after{
+.desktop-flex-header a:hover::after{
 	transform: scaleX(1);
 }
 a{
@@ -68,13 +69,13 @@ a{
 }
 
 
-.logo{
+.desktop-logo{
     width: 200px;
     cursor: pointer;
 }
 
 header{
-    background-color: var(--defaultBack);
+    background-color: var(--defaultMedium);
     padding:10px;
     position: fixed;
     top: 0;
@@ -82,6 +83,7 @@ header{
     left: 0;
     z-index: 2;
     transition: ease-in-out 1s;
+    font-family: "Exo 2", sans-serif;
 }
 
 .mobile-header{/*Used for making sure mobile has the right header*/
@@ -99,8 +101,32 @@ header{
 	width:50px;
 }
 
-.title-text, .hamburger{
+.mobile-menu {
+    height: 100%;
+    position: fixed;
+    width: 0;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.85);
+    overflow-x: hidden;
+    transition: 0.5s;
+    font-family: sans-serif;
+    z-index: 3;
+}
+.mobile-menu p {
+    padding: 12px 33px;
+    text-decoration: none;
     font-size: 2em;
+    color: var(--defaultRead);
+
+}
+
+.title-text, .open-button{
+    font-size: 4em;
+}
+
+.close-button{
+    font-size: 3em;
 }
 
 .desktop-header{ /*Used for making sure the desktop has the right header*/
@@ -129,6 +155,7 @@ header{
 	background: -webkit-linear-gradient(90deg, var(--accentOne), var(--accentTwo));
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    filter: drop-shadow(2px 2px linear-gradient(90deg, var(--accentOne), var(--accentTwo)));
     box-sizing: border-box;
 	text-align: center;
 	font-size: 7em;
@@ -193,6 +220,11 @@ body::-webkit-scrollbar-thumb:hover {
     html{
         font-size: 10px;
     }
+}
+@media (width <= 600px){
+    html{
+        font-size: 12px;
+    }
     .desktop-header{
         display: none;
     }
@@ -200,7 +232,7 @@ body::-webkit-scrollbar-thumb:hover {
         display: block;
     }
 }
-@media (width <= 400px){
+@media (width <= 500px){
     html{
         font-size: 8px;
     }
