@@ -115,7 +115,7 @@ fetch('devotionals.json')
             .then(data => {
                 const latestSeries = data[data.length - 1];
                 const today = latestSeries.days[latestSeries.days.length - 1];
-                $("devotional").innerText = today.series;
+                $("devotional").innerText = latestSeries.series;
                 $("content").innerText = today.content;
                 $("verses").innerText = today.verses;
                 if(today.extras != null || today.extras != undefined){
