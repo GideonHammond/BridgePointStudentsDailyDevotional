@@ -100,10 +100,10 @@
         The Beautitudes
     </h2>
     <p class="text">
-        <span id="content"></span><br>
-        Verses: <span id="verses"></span><br>
+        <span id="content"></span><br><br>
+        Verses: <span id="verses"></span><br><br>
         <span id="extras"></span>
-        Prayer: <span id="prayer"></span><br>
+        Prayer: <span id="prayer"></span><br><br>
         Another Note! Do any other devotionals that you have right now!
     </p>
 </main>
@@ -119,7 +119,7 @@ fetch('devotionals.json')
                 $("content").innerText = today.content;
                 $("verses").innerText = today.verses;
                 if(today.extras != null || today.extras != undefined){
-                    $("extras").innerText = today.extras + "<br>";
+                    $("extras").innerText = today.extras + "\n\n";
                 }
                 $("prayer").innerText = today.prayer;
             })
