@@ -25,25 +25,6 @@ const intersectObserver = new IntersectionObserver((entries) => {
 const hiddenElements = document.querySelectorAll(".hidden");
 hiddenElements.forEach((el) => intersectObserver.observe(el));
 
-let isVisible = null;
-let scrollStart = false;
-let isShrunk = false;
-let isScrolling = false;
-const hero = $("hero-text");
-const container = $("main");
-setTimeout(enableScroll, 1500);
-const options = {
-    root:container,
-    threshold:1
-};
-const callBack = (entries) => {
-    isVisible = entries[0].isIntersecting;
-};
-const observer = new IntersectionObserver(callBack,options);
-observer.observe(hero);
-function enableScroll(){
-    scrollStart = true;
-}
 
 
 function openNav() {
