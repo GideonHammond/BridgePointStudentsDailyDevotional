@@ -37,3 +37,20 @@ function closeNav() {
 
 
 
+const accordionHeaders = document.querySelectorAll(".accordion-header");
+const accordionContents = document.querySelectorAll(".accordion-content");
+
+accordionHeaders.forEach((header) => {
+    header.addEventListener('click', () => {
+        const accordionItem = header.parentElement;
+        const accordionContent = accordionItem.querySelector(".accordion-content");
+
+        accordionContents.forEach((content) => {
+            if(content !== accordionContent){
+                content.classList.remove("active");
+            } 
+        });
+
+        accordionContent.classList.toggle("active");
+    });
+})

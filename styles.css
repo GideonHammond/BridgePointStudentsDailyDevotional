@@ -3,6 +3,7 @@
         --defaultRead:#000;
         --defaultBack:#fff;
         --defaultMedium:#fafafa;
+        --defaultFar:#f0f0f0;
         --accent:#e60505;
     }
     body{
@@ -16,6 +17,7 @@
         --defaultRead:#fff;
         --defaultBack:#000;
         --defaultMedium:#070707;
+        --defaultFar:#0f0f0f;
         --accent:#23e9e3;
     }
     body{
@@ -24,7 +26,8 @@
     }
     .desktop-logo{
         filter: invert(100);
-    }   
+    }
+
 }
 
 html{
@@ -39,7 +42,7 @@ a{
 main{
     background-color: var(--defaultMedium);
     margin: 20vw;
-    height: 90vh;
+    min-height: 90vh;
 }
 
 header{
@@ -68,6 +71,7 @@ header{
     display: flex;
     flex-direction: row;
 }
+
 .desktop-flex-header a{
     margin: 0 20px;
     padding: 5px;
@@ -171,18 +175,36 @@ header{
     font-weight: bold;
 }
 
-/* Scroll bar stuff */
-body::-webkit-scrollbar {
-    width: 10px;
+.accordion{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    padding: 5vh;
+    box-sizing: border-box;
 }
-body::-webkit-scrollbar-track {
-    background: white; 
+
+.accordion-header{
+    display: flex;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 10px;
+    background-color: var(--defaultBack);
 }
-body::-webkit-scrollbar-thumb {
-    background: #555; 
+
+.accordion-content{
+    font-size: 1em;
+    max-height: 0;
+    transition: all 0.6s;
+    padding: 0 10px;
+    overflow: hidden;
+    background-color: var(--defaultFar);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-sizing: border-box;
 }
-body::-webkit-scrollbar-thumb:hover {
-    background: black; 
+
+.active{
+    max-height: 200px;
+    padding: 10px;
 }
 
 @media (width <= 1600px) {
