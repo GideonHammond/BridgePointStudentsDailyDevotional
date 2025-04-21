@@ -35,3 +35,12 @@ function closeNav() {
     document.getElementById("id-mobile-menu").style.width = "0";
 }
 
+
+fetch('devotionals.json')
+            .then(response => response.json())
+            .then(data => {
+                const latest = data[data.length]; // Get the latest entry
+                document.getElementById('').innerText = latest.title;
+                document.getElementById('').innerText = latest.content;
+            })
+            .catch(error => console.error("Error loading devotionals:", error));
