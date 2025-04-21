@@ -118,8 +118,8 @@
         const day = series?.days.find(d => d.day === dayNum);
 
         if (!series || !day) {
-            document.body.innerHTML = "<p>Devotional not found. Redirecting in 5s</p>";
-            setTimeout(redirect, 5000);
+            document.body.innerHTML = "<p>Devotional not found. Redirecting in 2s</p>";
+            setTimeout(redirect, 2000);
             return;
         }
 
@@ -130,6 +130,7 @@
                     $("extras").innerText = day.extras + "\n\n";
                 }
         document.getElementById("prayer").innerText = day.prayer;
+        document.getElementById("hero-text").innerText = seriesName + " Day " + dayNum;
       });
 </script>
 

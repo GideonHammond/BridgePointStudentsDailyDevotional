@@ -3,8 +3,7 @@
         --defaultRead:#000;
         --defaultBack:#fff;
         --defaultMedium:#fafafa;
-        --accentOne:#dd0099;
-        --accentTwo:#0099ff;
+        --accent:#e60505;
     }
     body{
         background-color: var(--defaultBack);
@@ -17,8 +16,7 @@
         --defaultRead:#fff;
         --defaultBack:#000;
         --defaultMedium:#070707;
-        --accentOne:#00ff99;
-        --accentTwo:#9900dd;
+        --accent:#23e9e3;
     }
     body{
         background-color: var(--defaultBack);
@@ -41,6 +39,7 @@ a{
 main{
     background-color: var(--defaultMedium);
     margin: 20vw;
+    height: 90vh;
 }
 
 header{
@@ -149,25 +148,12 @@ header{
 }
 
 .hero-text{
-	background: -webkit-linear-gradient(90deg, var(--accentOne), var(--accentTwo));
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(2px 2px linear-gradient(90deg, var(--accentOne), var(--accentTwo)));
+	color: var(--accent);
     box-sizing: border-box;
 	text-align: center;
 	font-size: 7em;
-	padding:calc(12vw - 0.5em) 0;
-    font-family: "Pacifico", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-
-.break-image{
-    background-image: url('images/bibleBreak.jpg');
-    background-position: center;
-    background-repeat:no-repeat;
-    background-size:cover;
-}
-.break-image p {
-    padding: 10vw;
+	padding:5vw 0;
+    font-family: "Pacifico",sans-serif;
 }
 
 .text-header{
