@@ -39,7 +39,6 @@ function closeNav() {
 fetch('devotionals.json')
             .then(response => response.json())
             .then(data => {
-                const latest = data[data.length]; // Get the latest entry
-                console.log(latest)
+                console.log(data)
             })
             .catch(error => console.error("Error loading devotionals:", error));
