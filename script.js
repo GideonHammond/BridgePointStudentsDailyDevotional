@@ -39,6 +39,6 @@ function closeNav() {
 fetch('devotionals.json')
             .then(response => response.json())
             .then(data => {
-                console.log(data[data.length])
+                console.log(data[data.length-1])
             })
             .catch(error => console.error("Error loading devotionals:", error));
