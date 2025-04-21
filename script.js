@@ -40,7 +40,6 @@ fetch('devotionals.json')
             .then(response => response.json())
             .then(data => {
                 const latest = data[data.length]; // Get the latest entry
-                document.getElementById('').innerText = latest.title;
-                document.getElementById('').innerText = latest.content;
+                console.log(latest)
             })
             .catch(error => console.error("Error loading devotionals:", error));
