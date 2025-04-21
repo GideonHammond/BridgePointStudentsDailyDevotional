@@ -113,8 +113,8 @@
 fetch('devotionals.json')
             .then(response => response.json())
             .then(data => {
-                var latest = data[data.length-1]
-                var today = latest[latest-1]
+                const latestSeries = data[data.length - 1];
+                const today = latestSeries.days[latestSeries.days.length - 1];
                 $("devotional").innerText = latest.series;
                 $("content").innerText = today.content;
                 $("verses").innerText = today.verses;
