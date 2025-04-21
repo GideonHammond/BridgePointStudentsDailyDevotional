@@ -104,7 +104,7 @@
       const params = new URLSearchParams(window.location.search);
       return params.get(name);
     }
-    function callBack_func() {
+    function redirect() {
         document.location.href = "https://bpsdd.com/list.html";
     }
 
@@ -118,8 +118,8 @@
         const day = series?.days.find(d => d.day === dayNum);
 
         if (!series || !day) {
-            document.body.innerHTML = "<p>Devotional not found.</p>";
-            setTimeout(callBack_func, timeInterval);
+            document.body.innerHTML = "<p>Devotional not found. Redirecting in 5s</p>";
+            setTimeout(redirect, 5000);
             return;
         }
 
