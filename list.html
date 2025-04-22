@@ -89,9 +89,9 @@
 fetch('devotionals.json')
             .then(response => response.json())
             .then(data => {
-                let string;
+                let string = "";
                 data.forEach((dataPiece) => {
-                    let string ="<div class='accordion-item'><div class='accordion-header'>" + dataPiece.series + "</div><div class='accordion-content'>"
+                    string += "<div class='accordion-item'><div class='accordion-header'>" + dataPiece.series + "</div><div class='accordion-content'>"
 
                     
                         for (let index = 1; index <= dataPiece.days.length; index++) {
