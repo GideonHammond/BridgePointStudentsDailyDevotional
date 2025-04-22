@@ -92,11 +92,11 @@ fetch('devotionals.json')
         let string = "";
         data.forEach((dataPiece) => {
             string += "<div class=\"accordion-item\"><div class=\"accordion-header\">" + dataPiece.series + "</div><div class=\"accordion-content\">"
-                
-                for (let index = 1; index <= dataPiece.days.length; index++) {
-                    const url = `devotional.html?series=${encodeURIComponent(dataPiece.series)}&day=${i}`;
-                    string += `<a href="${url}">Day ${i}</a><br>`;
-                }
+
+            for (let i = 1; i <= dataPiece.days.length; i++) {
+                const url = `devotional.html?series=${encodeURIComponent(dataPiece.series)}&day=${i}`;
+                string += `<a href="${url}">Day ${i}</a><br>`;
+            }
             string += "</div></div>"; 
         });
         $("main-container").innerHTML = string;   
