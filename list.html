@@ -89,6 +89,7 @@
 fetch('devotionals.json')
             .then(response => response.json())
             .then(data => {
+                let string;
                 data.forEach((dataPiece) => {
                     let string ="<div class='accordion-item'><div class='accordion-header'>" + dataPiece.series + "</div><div class='accordion-content'>"
 
@@ -98,8 +99,8 @@ fetch('devotionals.json')
                             string += element; 
                         }
                     string += "</div></div>"; 
-                    $("main-container").innerHTML = string;   
                 });
+                $("main-container").innerHTML = string;   
             })
             .catch(error => console.error("Error loading devotionals:", error));
 
