@@ -171,6 +171,12 @@ header{
     line-height: 1.7em;
 }
 
+.text a{
+    color: var(--defaultRead);
+    text-decoration: none;
+    font-weight: bold;
+}
+
 .text b{
     font-weight: bold;
 }
