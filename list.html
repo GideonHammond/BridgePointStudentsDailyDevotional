@@ -91,7 +91,7 @@ fetch('devotionals.json')
             .then(data => {
                 let string = "";
                 data.forEach((dataPiece) => {
-                    string += "<div class='accordion-item'><div class='accordion-header'>" + dataPiece.series + "</div><div class='accordion-content'>"
+                    string += "<div class=\"accordion-item\"><div class=\"accordion-header\">" + dataPiece.series + "</div><div class=\"accordion-content\">"
 
                     
                         for (let index = 1; index <= dataPiece.days.length; index++) {
@@ -119,8 +119,6 @@ accordionHeaders.forEach((header) => {
     
             } 
         });
-
-
         accordionContent.classList.toggle("active");
     });
 })
