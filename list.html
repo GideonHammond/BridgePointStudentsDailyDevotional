@@ -109,19 +109,17 @@ console.log(accordionHeaders)
 const accordionContents = document.querySelectorAll(".accordion-content");
 
 accordionHeaders.forEach((header) => {
+    console.log(header);
     header.addEventListener('click', () => {
-        console.log("try");
         const accordionItem = header.parentElement;
         const accordionContent = accordionItem.querySelector(".accordion-content");
-        console.log("try");
         accordionContents.forEach((content) => {
             if(content !== accordionContent){
                 content.classList.remove("active");
-                console.log("try");
+    
             } 
         });
 
-        console.log("try");
 
         accordionContent.classList.toggle("active");
     });
