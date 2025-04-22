@@ -3,6 +3,7 @@ function $(id){
     return document.getElementById(id);
 }
 
+
 function checkHeadHeight(){
     var main = $("main");
     var header = $("header");
