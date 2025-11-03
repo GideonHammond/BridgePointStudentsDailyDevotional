@@ -24,7 +24,7 @@
         background-color: var(--defaultBack);
         color: var(--defaultRead);
     }
-    .desktop-logo{
+    .desktop-logo, .mobile-logo{
         filter: invert(100);
     }
 
