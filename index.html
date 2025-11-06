@@ -96,20 +96,28 @@
 
 <script src="script.js"></script>
 <script>
-fetch('devotionals.json')
-            .then(response => response.json())
-            .then(data => {
-                const latestSeries = data[data.length - 1];
-                const today = latestSeries.days[latestSeries.days.length - 1];
-                $("devotional").innerText = latestSeries.series;
-                $("content").innerText = today.content;
-                $("verses").innerText = today.verses;
-                if(today.extras != null || today.extras != undefined){
-                    $("extras").innerText = today.extras + "\n\n";
-                }
-                $("prayer").innerText = today.prayer;
-            })
-            .catch(error => console.error("Error loading devotionals:", error));
+    runToday();
+    // {
+    //   "id": "eng_kjv",
+    //   "name": "King James (Authorized) Version",
+    //   "website": "https://ebible.org/Scriptures/details.php?id=eng-kjv2006",
+    //   "licenseUrl": "https://ebible.org/Scriptures/details.php?id=eng-kjv2006",
+    //   "licenseNotes": null,
+    //   "shortName": "KJAV",
+    //   "englishName": "King James Version",
+    //   "language": "eng",
+    //   "textDirection": "ltr",
+    //   "sha256": "90268887fe5c92c831e5efb59add2967583f912e780a9e4007a91dcc70ab4a30",
+    //   "availableFormats": [
+    //     "json"
+    //   ],
+    //   "listOfBooksApiLink": "/api/eng_kjv/books.json",
+    //   "numberOfBooks": 66,
+    //   "totalNumberOfChapters": 1189,
+    //   "totalNumberOfVerses": 31102,
+    //   "languageName": "English",
+    //   "languageEnglishName": "English"
+    // }
 </script>
 </body>
 

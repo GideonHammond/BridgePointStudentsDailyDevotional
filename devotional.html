@@ -100,38 +100,7 @@
 
 <script src="script.js"></script>
 <script>
-    function getParam(name) {
-      const params = new URLSearchParams(window.location.search);
-      return params.get(name);
-    }
-    function redirect() {
-        document.location.href = "https://bpsdd.com/list.html";
-    }
-
-    fetch('devotionals.json')
-      .then(res => res.json())
-      .then(data => {
-        const seriesName = getParam("series");
-        const dayNum = parseInt(getParam("day"));
-
-        const series = data.find(s => s.series === seriesName);
-        const day = series?.days.find(d => d.day === dayNum);
-
-        if (!series || !day) {
-            document.body.innerHTML = "<p>Devotional not found. Redirecting in 2s</p>";
-            setTimeout(redirect, 2000);
-            return;
-        }
-
-        document.getElementById("devotional").innerText = series.series;
-        document.getElementById("content").innerText = day.content;
-        document.getElementById("verses").innerText = day.verses;
-        if(day.extras != null || day.extras != undefined){
-                    $("extras").innerText = day.extras + "\n\n";
-                }
-        document.getElementById("prayer").innerText = day.prayer;
-        document.getElementById("hero-text").innerText = seriesName + " Day " + dayNum;
-      });
+    loadDevotional();
 </script>
 
 </body>

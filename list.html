@@ -78,7 +78,11 @@
     </header>
 
 <main id="main">
-
+    <div class="hero" id="hero">
+        <h1 class="hero-text hidden" id="hero-text">
+            Archived Devotionals
+        </h1>
+    </div>
     <div class="accordion" id="main-container">
 
     </div>
@@ -86,43 +90,7 @@
 
 <script src="script.js"></script>
 <script>
-fetch('devotionals.json')
-    .then(response => response.json())
-    .then(data => {
-        let string = "";
-        data.forEach((dataPiece) => {
-            string += "<div class=\"accordion-item\"><div class=\"accordion-header\">" + dataPiece.series + "</div><div class=\"accordion-content\">"
-
-            for (let i = 1; i <= dataPiece.days.length; i++) {
-                const url = `devotional.html?series=${encodeURIComponent(dataPiece.series)}&day=${i}`;
-                string += `<a href="${url}">Day ${i}</a><br>`;
-            }
-            string += "</div></div>"; 
-        });
-        $("main-container").innerHTML = string;   
-
-        const accordionHeaders = document.querySelectorAll(".accordion-header");
-        const accordionContents = document.querySelectorAll(".accordion-content");
-
-        accordionHeaders.forEach((header) => {
-            console.log(header)
-            header.addEventListener('click', () => {
-                const accordionItem = header.parentElement;
-                const accordionContent = accordionItem.querySelector(".accordion-content");
-
-                accordionContents.forEach((content) => {
-                    if(content !== accordionContent){
-                        content.classList.remove("active");
-                    } 
-                });
-
-                accordionContent.classList.toggle("active");
-            });
-        })
-    })
-    .catch(error => console.error("Error loading devotionals:", error));
-
-
+    listDevos();
 </script>
 </body>
 
