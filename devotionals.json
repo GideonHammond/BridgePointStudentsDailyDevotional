@@ -295,5 +295,18 @@
           "prayer": "Pray that any perpetual sin you commit will stop. Pray for a loving attitude towards others and that you can learn how to receive God's gifts. Pray that you can love those around you and treat everyone around you with love and kindness."
         }
       ]
+    },
+    {
+      "series": "Serious Series",
+      "days": [
+        {
+          "day": 1,
+          "title": "Title",
+          "content": "Serious Content",
+          "verses": "Words!",
+          "prayer": "Things",
+          "release": "2026-02-21"
+        }
+      ]
     }
   ]

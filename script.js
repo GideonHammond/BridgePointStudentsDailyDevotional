@@ -46,22 +46,43 @@ async function loadDevos() {
  * Automatically ensures data is loaded before running.
  */
 async function runToday() {
-    await loadDevos(); // Ensure devotional data is available
+    await loadDevos();
 
-    const latestSeries = devoData[devoData.length - 1];
-    const today = latestSeries.days[latestSeries.days.length - 1];
-    const dayNum = today.day;
+    const now = new Date();
 
-    $("series-name").innerText = latestSeries.series;
-    $("day-number").innerText = "Day " + dayNum;
-    $("content").innerText = today.content; // yapp attack
-    $("verses").innerText = today.verses;
+    // Loop backward through series (newest → oldest)
+    for (let i = devoData.length - 1; i >= 0; i--) {
+        const series = devoData[i];
 
-    if (today.extras) {
-        $("extras").innerText = today.extras + "\n\n";
+        // Filter released days
+        const releasedDays = series.days
+            .filter(day => {
+                if (!day.release) return true; // no release date = released
+                return new Date(day.release) <= now;
+            })
+            .sort((a, b) => new Date(a.release || 0) - new Date(b.release || 0));
+
+        if (releasedDays.length === 0) {
+            continue; // try previous series
+        }
+
+        const today = releasedDays[releasedDays.length - 1];
+
+        $("series-name").innerText = series.series;
+        $("day-number").innerText = "Day " + today.day;
+        $("content").innerText = today.content;
+        $("verses").innerText = today.verses;
+
+        if (today.extras) {
+            $("extras").innerText = today.extras + "\n\n";
+        }
+
+        $("prayer").innerText = today.prayer;
+
+        return; // stop once we render
     }
 
-    $("prayer").innerText = today.prayer;
+    console.warn("No released devotionals found in any series.");
 }
 
 /* ============================================================================
@@ -73,19 +94,31 @@ async function runToday() {
  * Each accordion section represents a series; each link represents a day.
  */
 async function listDevos() {
-    await loadDevos(); // Make sure data is available
+    await loadDevos();
 
-    let string = ""; // HTML builder string
+    const now = new Date();
+    let string = "";
 
     devoData.forEach((dataPiece) => {
         string += `<div class="accordion-item">
             <div class="accordion-header">${dataPiece.series}</div>
             <div class="accordion-content">`;
 
-        // Generate day links for each devotional series
-        for (let i = 1; i <= dataPiece.days.length; i++) {
-            const url = `devotional.html?series=${encodeURIComponent(dataPiece.series)}&day=${i}`;
-            string += `<a href="${url}">Day ${i}</a><br>`;
+        // Filter released days
+        const releasedDays = dataPiece.days.filter(day => {
+            if (!day.release) return true;
+            return new Date(day.release) <= now;
+        });
+
+        // Render only released days
+        releasedDays.forEach((day) => {
+            const url = `devotional.html?series=${encodeURIComponent(dataPiece.series)}&day=${day.day}`;
+            string += `<a href="${url}">Day ${day.day}</a><br>`;
+        });
+
+        // Optional: show message if none released
+        if (releasedDays.length === 0) {
+            string += `<div class="no-devos">No devotionals released yet.</div>`;
         }
 
         string += `</div></div>`;
@@ -93,23 +126,21 @@ async function listDevos() {
 
     $("main-container").innerHTML = string;
 
-    // Handle accordion toggling
+    // Accordion behavior
     const accordionHeaders = document.querySelectorAll(".accordion-header");
     const accordionContents = document.querySelectorAll(".accordion-content");
 
     accordionHeaders.forEach((header) => {
-        header.addEventListener('click', () => {
+        header.addEventListener("click", () => {
             const accordionItem = header.parentElement;
             const accordionContent = accordionItem.querySelector(".accordion-content");
 
-            // Close all other open accordions
             accordionContents.forEach((content) => {
                 if (content !== accordionContent) {
                     content.classList.remove("active");
                 }
             });
 
-            // Toggle current accordion open/closed
             accordionContent.classList.toggle("active");
         });
     });
