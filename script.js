@@ -12,24 +12,12 @@ function $(id) {
     return document.getElementById(id);
 }
 
-/**
- * Adjusts the <main> element’s top margin so it sits just below the header.
- * Ensures consistent layout when header height changes (responsive design).
- */
-function checkHeadHeight() {
-    const main = $("main");
-    const header = $("header");
-    const headerHeight = window.getComputedStyle(header).getPropertyValue("height");
-    main.style.marginTop = headerHeight;
-}
-
 /* ============================================================================
    📖 Global Variables
    ========================================================================== */
 
 let devoResponse;  // Will hold the fetch() response for devotionals
 let devoData;      // Parsed JSON data for devotionals
-const translation = "eng_kjv"; // Default Bible translation (can be changed)
 
 /* ============================================================================
    🌐 Fetch Functions
@@ -48,19 +36,6 @@ async function loadDevos() {
     }
 }
 
-/**
- * Fetches the list of Bible books for the selected translation.
- * Logs the data for now — can later be expanded to populate a Bible reader.
- */
-async function loadBible() {
-    try {
-        const bibleResponse = await fetch(`https://bible.helloao.org/api/${translation}/books.json`);
-        const bibleData = await bibleResponse.json();
-        console.log(bibleData);
-    } catch (error) {
-        console.error("Error loading Bible Translation:", error);
-    }
-}
 
 /* ============================================================================
    🙏 Run Today’s Devotional
@@ -75,9 +50,11 @@ async function runToday() {
 
     const latestSeries = devoData[devoData.length - 1];
     const today = latestSeries.days[latestSeries.days.length - 1];
+    const dayNum = today.day;
 
-    $("devotional").innerText = latestSeries.series;
-    $("content").innerText = today.content;
+    $("series-name").innerText = latestSeries.series;
+    $("day-number").innerText = "Day " + dayNum;
+    $("content").innerText = today.content; // yapp attack
     $("verses").innerText = today.verses;
 
     if (today.extras) {
@@ -181,8 +158,8 @@ async function loadDevotional() {
         return;
     }
 
-    $("hero-text").innerText = seriesName;
-    $("devotional").innerText = "Day " + dayNum;
+    $("series-name").innerText = seriesName;
+    $("day-number").innerText = "Day " + dayNum;
     $("content").innerText = day.content;
     $("verses").innerText = day.verses;
 
@@ -193,42 +170,6 @@ async function loadDevotional() {
     $("prayer").innerText = day.prayer;
 }
 
-/* ============================================================================
-   👀 Intersection Observer Animations
-   ========================================================================== */
-
-/**
- * Fades in / animates elements with the class "hidden"
- * when they enter the viewport.
- */
-const intersectObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-        }
-    });
-});
-
-const hiddenElements = document.querySelectorAll(".hidden");
-hiddenElements.forEach((el) => intersectObserver.observe(el));
-
-/* ============================================================================
-   📱 Mobile Navigation Controls
-   ========================================================================== */
-
-/**
- * Opens the full-screen mobile navigation overlay.
- */
-function openNav() {
-    $("id-mobile-menu").style.width = "100%";
-}
-
-/**
- * Closes the mobile navigation overlay.
- */
-function closeNav() {
-    $("id-mobile-menu").style.width = "0";
-}
 
 /* ============================================================================
    🚀 Page Initialization
@@ -240,6 +181,5 @@ function closeNav() {
  * - Preload Bible data for reference
  */
 window.onload = function() {
-    checkHeadHeight();
     loadBible(); // Preload translation info
 };

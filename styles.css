@@ -1,37 +1,33 @@
 @media (prefers-color-scheme: light){
     :root {
-        --defaultRead:#000;
+        --defaultRead:#353535;
         --defaultBack:#fff;
-        --defaultMedium:#fafafa;
+        --defaultMedium:#f9f9f9;
         --defaultFar:#f0f0f0;
-        --accent:#e60505;
-    }
-    body{
-        background-color: var(--defaultBack);
-        color: var(--defaultRead);
+        --accent:#008bcc;
     }
 }
 
 @media (prefers-color-scheme: dark){
     :root {
-        --defaultRead:#fff;
+        --defaultRead:#f9f9f9;
         --defaultBack:#000;
-        --defaultMedium:#070707;
+        --defaultMedium:#0a0a0a;
         --defaultFar:#0f0f0f;
-        --accent:#23e9e3;
+        --accent:#17aaa5;
     }
-    body{
-        background-color: var(--defaultBack);
-        color: var(--defaultRead);
-    }
-    .desktop-logo, .mobile-logo{
-        filter: invert(100);
-    }
+
 
 }
 
 html{
     height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: var(--defaultMedium);
+    color: var(--defaultRead);
 }
 
 a{
@@ -39,125 +35,55 @@ a{
     color: var(--defaultRead);
 }
 
-main{
-    background-color: var(--defaultMedium);
+.content{
     margin: 20vw;
-    min-height: 90vh;
 }
 
 header{
-    background-color: var(--defaultMedium);
-    padding:10px;
-    position: fixed;
+    position: sticky;
     top: 0;
     right: 0;
     left: 0;
-    z-index: 2;
     transition: ease-in-out 1s;
     font-family: "Exo 2", sans-serif;
-}
-
-.desktop-header{ /*Used for making sure the desktop has the right header*/
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     z-index: 1;
-    height:calc(10svh);
     box-sizing: border-box;
-    overflow-x: hidden;
 }
 
-.desktop-flex-header{
-    display: flex;
-    flex-direction: row;
+.flex-header{
+    background-color: var(--accent);
+    padding:15px 0 15px 1vh;
+    font-size: 2em;
 }
 
-.desktop-flex-header a{
-    margin: 0 20px;
-    padding: 5px;
+.flex-header p {
+    display: inline-block;   
+}
+
+.flex-header a{
+    padding: 15px;
     cursor: pointer;
     position: relative;
-    font-size: 2em;
-}
-
-.desktop-flex-header a::after{
-	content:'';
-	position: absolute;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: var(--defaultRead);
-	height: 2px;
-	transform: scaleX(0);
-	transform-origin: center;
-	transition: transform 0.3s ease;
-    box-shadow: 0 0 5px var(--defaultRead);
-}
-.desktop-flex-header a:hover::after{
-	transform: scaleX(1);
-}
-
-.desktop-logo{
-    width: 200px;
-    cursor: pointer;
-}
-
-.mobile-header{/*Used for making sure mobile has the right header*/
-    display: none;
-}
-
-.mobile-flex-header{
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-    align-items: center;
-}
-
-.mobile-logo{
-	width:50px;
-}
-
-.mobile-menu {
-    height: 100%;
-    position: fixed;
-    width: 0;
-    top: 0;
-    left: 0;
-    background-color: var(--defaultBack);
-    overflow-x: hidden;
-    transition: 0.5s;
-    font-family: sans-serif;
-    z-index: 3;
-}
-.mobile-menu p {
-    padding: 12px 33px;
-    text-decoration: none;
-    font-size: 2em;
-    color: var(--defaultRead);
-}
-.title-text, .open-button,.close-button{
-    font-size: 4em;
-}
-
-.hidden{
-	opacity: 0;
-	filter:blur(2px);
-	transform: translateY(-15%);
-}
-.show{
-	filter:blur(0px);
-	transform: translateX(0);
-	opacity: 1;
-	transition:ease-in-out 1.5s;
+    color: var(--defaultBack);
+    font-family: "Alfa slab one", Arial, Helvetica, sans-serif;
 }
 
 .hero-text{
-	color: var(--accent);
+	background-color: var(--accent);
+    color: var(--defaultBack);
     box-sizing: border-box;
-	text-align: center;
-	font-size: 7em;
-	padding:5vw 0;
-    font-family: "Pacifico",sans-serif;
+	font-size: 6em;
+	padding: 5vw 0 5vw 1vh;
+    font-family: "Alfa slab one", sans-serif;
+    text-transform: uppercase;
+}
+
+.hero-text h2{
+    font-size: 0.5em;
+}
+
+.hero-text h3{
+    font-size: 0.25em;
 }
 
 .text-header{
@@ -254,16 +180,19 @@ header{
     .text{
         font-size: 1.5em;
     }
+    .hero-text{
+        font-size: 5em;
+    }
+    .hero-text h2{
+        font-size: 0.6em;
+    }
+        .hero-text h3{
+        font-size: 0.4em;
+    }
 }
 @media (width <= 600px){
     html{
         font-size: 12px;
-    }
-    .desktop-header{
-        display: none;
-    }
-    .mobile-header{
-        display: block;
     }
     .text{
         font-size: 2em;

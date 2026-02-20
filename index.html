@@ -15,109 +15,49 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header id="header">
-        <div class="desktop-header">
-            <a href="index.html">
-                <img src="images/devoLogo.png" class="desktop-logo">
-            </a>
-            <nav class="desktop-flex-header">
-                <p>
-                    <a href="index.html">
-                        Home
-                    </a>
-                </p>
-                <p>
-                    <a href="about.html">
-                        About
-                    </a>
-                </p>
-                <p>
-                    <a href="list.html">
-                        Archive
-                    </a>
-                </p>
-            </nav>
-        </div>
-        <div class="mobile-header">
-            <nav class="mobile-flex-header">
-                <p>
-                    <a href="#" class="open-button" onclick="openNav()">
-                        &#9776;
-                    </a>
-                </p>
-                <p class="title-text">BPSDD</p>
-                <img src="images/bplogo.png" alt="BridgePoint's Logo" class="mobile-logo">
-                <div class="mobile-menu" id="id-mobile-menu">
-                    <p>
-                        <a href="#" class="close-button" onclick="closeNav()">
-                            &times;
-                        </a>
-                    </p>
-                    <p>
-                        <a href="index.html">
-                            Home
-                        </a>
-                    </p>
-                    <p>
-                        <a href="about.html">
-                            About
-                        </a>
-                    </p>
-                    <p>
-                        <a href="list.html">
-                            Archive
-                        </a>
-                    </p>
-                </div>
-            </nav>
-        </div>
-    </header>
 
-<main id="main">
+<main>
     <div class="hero" id="hero">
-        <h1 class="hero-text hidden" id="hero-text">
-            Today's Devotional
-        </h1>
+        <div class="hero-text">
+            <h1 >
+                Today's Devotional
+            </h1>
+            <h2 id="series-name">
+                Placeholder
+            </h2>
+            <h3 id="day-number">
+                Day #
+            </h2>
+        </div>
     </div>
-    <h2 class="text-header" id="devotional">
-    </h2>
+    <header id="header">
+        <nav class="flex-header">
+            <p>
+                <a href="index.html">
+                    Home
+                </a>
+            </p>
+            <p>
+                <a href="list.html">
+                    Archive
+                </a>
+            </p>
+        </nav>
+    </header>
     <p class="text">
         <span id="content"></span><br><br>
         Verses: <span id="verses"></span><br><br>
         <span id="extras"></span>
         Prayer: <span id="prayer"></span><br><br>
-        Another Note! Do any other devotionals that you have right now!
     </p>
 </main>
 
 <script src="script.js"></script>
 <script>
     runToday();
-    // {
-    //   "id": "eng_kjv",
-    //   "name": "King James (Authorized) Version",
-    //   "website": "https://ebible.org/Scriptures/details.php?id=eng-kjv2006",
-    //   "licenseUrl": "https://ebible.org/Scriptures/details.php?id=eng-kjv2006",
-    //   "licenseNotes": null,
-    //   "shortName": "KJAV",
-    //   "englishName": "King James Version",
-    //   "language": "eng",
-    //   "textDirection": "ltr",
-    //   "sha256": "90268887fe5c92c831e5efb59add2967583f912e780a9e4007a91dcc70ab4a30",
-    //   "availableFormats": [
-    //     "json"
-    //   ],
-    //   "listOfBooksApiLink": "/api/eng_kjv/books.json",
-    //   "numberOfBooks": 66,
-    //   "totalNumberOfChapters": 1189,
-    //   "totalNumberOfVerses": 31102,
-    //   "languageName": "English",
-    //   "languageEnglishName": "English"
-    // }
 </script>
 </body>
 
