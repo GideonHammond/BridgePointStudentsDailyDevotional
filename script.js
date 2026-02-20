@@ -71,13 +71,13 @@ async function runToday() {
         $("series-name").innerText = series.series;
         $("day-number").innerText = "Day " + today.day;
         $("content").innerText = today.content;
-        $("verses").innerText = today.verses;
+        $("verses").innerText = (today.verses != undefined? "Verses: " + today.verses: "");
 
         if (today.extras) {
             $("extras").innerText = today.extras + "\n\n";
         }
 
-        $("prayer").innerText = today.prayer;
+        $("prayer").innerText = (today.prayers != undefined? "Prayers: " + today.prayers: "");
 
         return; // stop once we render
     }
@@ -192,13 +192,13 @@ async function loadDevotional() {
     $("series-name").innerText = seriesName;
     $("day-number").innerText = "Day " + dayNum;
     $("content").innerText = day.content;
-    $("verses").innerText = day.verses;
+    $("verses").innerText = (today.verses != undefined? "Verses: " + today.verses: "");
 
     if (day.extras != null || day.extras != undefined) {
         $("extras").innerText = day.extras + "\n\n";
     }
 
-    $("prayer").innerText = day.prayer;
+    $("prayer").innerText = (today.prayers != undefined? "Prayers: " + today.prayers: "");
 }
 
 
