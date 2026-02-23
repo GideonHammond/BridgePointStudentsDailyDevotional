@@ -192,13 +192,13 @@ async function loadDevotional() {
     $("series-name").innerText = seriesName;
     $("day-number").innerText = "Day " + dayNum;
     $("content").innerText = day.content;
-    $("verses").innerText = (today.verses != undefined? "Verses: " + today.verses: "");
+    $("verses").innerText = (day.verses != undefined? "Verses: " + day.verses: "");
 
     if (day.extras != null || day.extras != undefined) {
         $("extras").innerText = day.extras + "\n\n";
     }
 
-    $("prayer").innerText = (today.prayers != undefined? "Prayers: " + today.prayers: "");
+    $("prayer").innerText = (day.prayers != undefined? "Prayers: " + day.prayers: "");
 }
 
 
