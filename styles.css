@@ -27,6 +27,7 @@ html{
 
 body{
     background-color: var(--defaultMedium);
+    font-size: 16px;
     color: var(--defaultRead);
 }
 
@@ -139,6 +140,10 @@ header{
 .active{
     max-height: 200px;
     padding: 10px;
+}
+
+.onesignal-customlink-container{
+    border-radius: 0;
 }
 
 @media (width <= 1600px) {
