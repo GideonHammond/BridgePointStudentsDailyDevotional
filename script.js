@@ -193,7 +193,7 @@ async function loadDevotional() {
     $("day-number").innerText = "Day " + dayNum;
     $("content").innerText = day.content;
     $("verses").innerText = (day.verses != undefined? "Verses: " + day.verses: "");
-    console.log(day.verses);
+    console.log((day.verses != undefined? "Verses: " + day.verses: ""));
 
     if (day.extras != null || day.extras != undefined) {
         $("extras").innerText = day.extras + "\n\n";
