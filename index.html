@@ -16,6 +16,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <!-- OneScript Stuff -->
+    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+    <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(async function(OneSignal) {
+        await OneSignal.init({
+        appId: "7b483d4a-2b84-47b0-91ee-4247c83c6be0",
+        });
+    });
+    </script>
 </head>
 <body>
 
@@ -58,6 +68,9 @@
         <span id="extras"></span>
         <span id="prayer">Prayer: </span><br><br>
     </p>
+    <footer style="margin: auto; text-align: center;">
+        <div class='onesignal-customlink-container'></div>
+    </footer>
 </main>
 
 <script src="script.js"></script>
