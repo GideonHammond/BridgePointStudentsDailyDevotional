@@ -212,5 +212,4 @@ async function loadDevotional() {
  * - Preload Bible data for reference
  */
 window.onload = function() {
-    loadBible(); // Preload translation info
 };
