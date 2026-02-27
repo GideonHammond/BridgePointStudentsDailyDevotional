@@ -10,7 +10,7 @@
 
 @media (prefers-color-scheme: dark){
     :root {
-        --defaultRead:#f9f9f9;
+        --defaultRead:#ddd;
         --defaultBack:#000;
         --defaultMedium:#0a0a0a;
         --defaultFar:#0f0f0f;
